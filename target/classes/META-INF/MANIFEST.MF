@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: salvgonz
+Build-Jdk: 15.0.2
+Implementation-Title: baseline-service
+Implementation-Version: 1.0.0
+Implementation-Vendor-Id: practicas-cloud
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
+ -starter-parent/baseline-service
+Created-By: Maven Integration for Eclipse
+
