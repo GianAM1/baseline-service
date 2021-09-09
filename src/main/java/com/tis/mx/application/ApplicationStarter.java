@@ -1,10 +1,10 @@
-package base;
+package com.tis.mx.application;
 
-import base.dto.Producto;
+import com.tis.mx.application.dto.Producto;
 
 public class ApplicationStarter {
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		
 		Producto producto = new Producto("nombre producto", 2000.00, "Descripcion", 100);	
 		Producto producto2 = new Producto();
@@ -12,5 +12,5 @@ public class ApplicationStarter {
 		producto.getCantidadDisponible();
 		
 		System.out.println(producto);
-	}
+	}*/
 }

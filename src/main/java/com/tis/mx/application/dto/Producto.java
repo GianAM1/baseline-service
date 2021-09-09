@@ -13,7 +13,7 @@
 * Fecha de creación: 6 sep. 2021
 */
 
-package base.dto;
+package com.tis.mx.application.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -35,8 +35,8 @@ import lombok.ToString;
  * @param descripcion the descripcion
  * @param cantidadDisponible the cantidad disponible
  */
-@AllArgsConstructor
-@NoArgsConstructor
+@AllArgsConstructor //Constructor con parametros
+@NoArgsConstructor //Constructor sin parametros
 @ToString
 public class Producto {
 
