@@ -15,6 +15,10 @@
 package com.tis.mx.application.controller;
 
 import java.util.List;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RestController;
 import com.tis.mx.application.dto.InitialInvestmentDto;
 import com.tis.mx.application.dto.InvestmentYieldDto;
 import com.tis.mx.application.service.CompoundInterestCalculator;
@@ -22,6 +26,7 @@ import com.tis.mx.application.service.CompoundInterestCalculator;
 /**
  * The Class ApplicationController.
  */
+@RestController
 public class ApplicationController {
 
   /** The calculator. */
@@ -42,7 +47,10 @@ public class ApplicationController {
    * @param initialInvestment the initial investment
    * @return the list
    */
-  public List<InvestmentYieldDto> createTableYield(InitialInvestmentDto initialInvestment) {
+  @PostMapping(value = "/api/v1/investors/calculators/ci")
+  public List<InvestmentYieldDto> createTableYield(
+      @RequestHeader (value = "Content-Type", required = false) String contentType,
+      @RequestBody InitialInvestmentDto initialInvestment) {
 
     if (calculator.validateInput(initialInvestment)) {
       return calculator.createRevenueGrid(initialInvestment);

@@ -5,11 +5,13 @@ import com.tis.mx.application.dto.InvestmentYieldDto;
 import com.tis.mx.application.service.CompoundInterestCalculator;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.stereotype.Service;
 
 /**
  * @author gaceves
  *
  */
+@Service
 public class CompoundInterestCalculatorImpl implements CompoundInterestCalculator {
 
   @Override
