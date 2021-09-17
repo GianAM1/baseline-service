@@ -1,5 +1,20 @@
+/* 
+* This program is free software: you can redistribute it and/or modify  
+* it under the terms of the GNU General Public License as published by  
+* the Free Software Foundation, version 3.
+*
+* This program is distributed in the hope that it will be useful, but 
+* WITHOUT ANY WARRANTY; without even the implied warranty of 
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+* General Public License for more details.
+*
+* Nombre de archivo: CompoundInterestCalculatorImpl.java
+* Autor: gaceves
+* Fecha de creación: 17 sep 2021
+*/
 package com.tis.mx.application.service.impl;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.tis.mx.application.dto.InitialInvestmentDto;
 import com.tis.mx.application.dto.InvestmentYieldDto;
 import com.tis.mx.application.service.CompoundInterestCalculator;
@@ -15,6 +30,7 @@ import org.springframework.stereotype.Service;
 public class CompoundInterestCalculatorImpl implements CompoundInterestCalculator {
 
   @Override
+  @HystrixCommand(commandKey = "createRevenueGrid", fallbackMethod = "fallbackRevenueGrid")
   public List<InvestmentYieldDto> createRevenueGrid(InitialInvestmentDto initialInvestmentDto) {
     Integer investmentYear = 0;
     Double initialInvestment = 0.00;
@@ -43,6 +59,16 @@ public class CompoundInterestCalculatorImpl implements CompoundInterestCalculato
           investmentYield, finalBalance));
     }
     return investmentYieldList;
+  }
+
+  /**
+   * Fallback revenue grid.
+   *
+   * @param initialInvestmentDto the initial investment dto
+   * @return the list
+   */
+  public List<InvestmentYieldDto> fallbackRevenueGrid(InitialInvestmentDto initialInvestmentDto) {
+    return null;
   }
 
   @Override
