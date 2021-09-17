@@ -1,10 +1,12 @@
-package com.tis.mx.application;
+package com.tis.mx;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import com.tis.mx.application.dto.Producto;
 
 @SpringBootApplication
+@EnableDiscoveryClient
 public class ApplicationStarter {
 
 	public static void main(String[] args) {
