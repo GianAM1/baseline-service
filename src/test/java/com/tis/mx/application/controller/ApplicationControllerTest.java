@@ -32,7 +32,7 @@ public class ApplicationControllerTest {
   
   @Test
   public void shouldGenerateTableYield() {
-    List<InvestmentYieldDto> tableYield = controller.createTableYield(initialInvestment);
+    List<InvestmentYieldDto> tableYield = controller.createTableYield(null, initialInvestment);
     
     assertEquals(5, tableYield.size());
     
